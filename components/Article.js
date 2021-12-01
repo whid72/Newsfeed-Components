@@ -117,17 +117,19 @@ function articleMaker(obj){
 
   //classes and text content
   article.classList.add('article');
-  title.textContent = obj[0].title;
+  title.textContent = obj.title;
   date.classList.add('date');
-  date.textContent = obj[0].date;
-  par1.textContent = obj[0].firstParagraph;
-  par2.textContent = obj[0].secondParagraph;
-  par3.textContent = obj[0].thirdParagraph;
+  date.textContent = obj.date;
+  par1.textContent = obj.firstParagraph;
+  par2.textContent = obj.secondParagraph;
+  par3.textContent = obj.thirdParagraph;
   button.classList.add('expandButton');
   button.textContent = '+'
-  
+  button.addEventListener('click', (event) => {
+    event.target.classList.toggle('article-open')
+  })
+
   //implementation
-  mainDiv.appendChild(article);
   article.appendChild(title);
   article.appendChild(date);
   article.appendChild(par1);
@@ -135,10 +137,8 @@ function articleMaker(obj){
   article.appendChild(par3);
   article.appendChild(button);
 
+  return article;
 }
-
-const article = articleMaker(data);
-console.log(article)
 
 /*
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
@@ -152,3 +152,8 @@ console.log(article)
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+data.map((item) => {
+  let article = articleMaker(item);
+  mainDiv.appendChild(article);
+})
