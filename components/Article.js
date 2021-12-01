@@ -106,6 +106,7 @@ const data = [
 const mainDiv = document.querySelector('.articles');
 
 function articleMaker(obj){
+  //declarations
   let article = document.createElement('div');
   let title = document.createElement('h2');
   let date = document.createElement('p');
@@ -114,6 +115,7 @@ function articleMaker(obj){
   let par3 = document.createElement('p');
   let button = document.createElement('span');
 
+  //classes and text content
   article.classList.add('article');
   title.textContent = obj[0].title;
   date.classList.add('date');
@@ -121,9 +123,10 @@ function articleMaker(obj){
   par1.textContent = obj[0].firstParagraph;
   par2.textContent = obj[0].secondParagraph;
   par3.textContent = obj[0].thirdParagraph;
-  par2.style.color = 'black'
+  button.classList.add('expandButton');
+  button.textContent = '+'
   
-
+  //implementation
   mainDiv.appendChild(article);
   article.appendChild(title);
   article.appendChild(date);
