@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Why',
+    date: 'Today',
+    firstParagraph: `Just... why`,
+
+    secondParagraph: `why? `,
+
+    thirdParagraph: `I don't get it.`
   }
 ];
 
@@ -126,7 +135,7 @@ function articleMaker(obj){
   button.classList.add('expandButton');
   button.textContent = '+'
   button.addEventListener('click', (event) => {
-    event.target.classList.toggle('article-open')
+    article.classList.toggle('article-open')
   })
 
   //implementation
@@ -148,12 +157,14 @@ function articleMaker(obj){
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html).
-
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
-  Refresh the page to see the new article.
 */
 
 data.map((item) => {
   let article = articleMaker(item);
   mainDiv.appendChild(article);
 })
+
+/*
+  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Refresh the page to see the new article.
+*/
