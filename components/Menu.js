@@ -19,7 +19,34 @@ let menuItems = [
   </div>
 
   The 'menuMaker' takes an array of menu items as its only argument.
+*/
 
+function menuMaker(arr){
+
+  //declaration
+  let menuDiv = document.createElement('div');
+  let ul = document.createElement('ul');
+  let menuButton = document.querySelector('.menu-button')
+
+  menuItems.forEach((item) => {
+    let li = document.createElement('li');
+    li.textContent = item;
+
+    ul.appendChild(li)
+  })
+  //classes, etc.
+  menuDiv.classList.add('menu');
+  menuButton.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu--open');
+  });
+
+  //implement
+  menuDiv.appendChild(ul);
+
+  return menuDiv
+}
+
+/*
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
 
@@ -31,3 +58,8 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+const head = document.querySelector('.header')
+let menu = menuMaker(menuItems);
+console.log(menu);
+head.appendChild(menu);
